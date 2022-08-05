@@ -197,9 +197,9 @@ class UniterPreTrainedModel(nn.Module):
                 if child is not None:
                     load(child, prefix + name + '.')
         start_prefix = ''
-        if not hasattr(model, 'bert') and any(s.startswith('bert.')
+        if not hasattr(model, 'uniter') and any(s.startswith('uniter.')
                                               for s in state_dict.keys()):
-            start_prefix = 'bert.'
+            start_prefix = 'uniter.'
         load(model, prefix=start_prefix)
         if len(missing_keys) > 0:
             logger.info("Weights of {} not initialized from "
